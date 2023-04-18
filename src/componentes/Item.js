@@ -8,9 +8,17 @@
 // PROPS: Item recibe como props el método para modificar la plataforma favorita y su respectivo nombre como contenido.
 
 export default function Item(props) {
-    return (
+
+   
+  const handleClick = () => {
+
+    props.seleccionarFavorita(props.nombre);}
+
+  return (
+    
       <>
-          // 🚩
+          <li onClick={handleClick}> {props.nombre} </li>
+
       </>
     );
   }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import Tarjeta from "./componentes/Tarjeta"
 import "./index.css";
 
 // CONSIGNAS EN APP:
@@ -17,11 +17,15 @@ function App() {
 
 
   const handleTema = () => {
-   
+
+    setTemaOscuro(!temaOscuro);
+
   };
 
-  const handleFavorita = () => {
-  
+  const handleFavorita = (plataforma) => {
+
+    setFavorita(plataforma);
+
   };
 
   return (
@@ -29,10 +33,11 @@ function App() {
       <h1>¡Bienvenidos!</h1>
       <h2>Contanos, ¿cuál es tu plataforma favorita?</h2>
       { favorita !== "" ? (<h4 className={ favorita === "Twitter" ? "tw" : favorita === "Facebook" ? "fb" : "yt" }> {favorita}</h4>) : ("")}
+      
+      <Tarjeta seleccionarFavorita={handleFavorita} />
 
-      {/* 🚩 Implementar acá */}
-
-      <button>Cambiar tema</button>
+      <button onClick={handleTema}>Cambiar tema</button>
+      
     </div>
   );
 }
